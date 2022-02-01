@@ -1,4 +1,4 @@
-# thanks to Kai Hong(kinghong97), Claire Chung
+# thanks to Claire Chung
 # 본인 쿠키 넣어야 함
 import requests
 import json
