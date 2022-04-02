@@ -29,10 +29,13 @@ for hate in hate_list:
         response = requests.get(f'https://www.10000recipe.com/recipe/list.html?q={hate}&order=reco&page={num}', headers=headers)
 
         soup = BeautifulSoup(response.content, 'html.parser')
-        url_list = soup.select('.common_sp_list_li')
+        url_list = soup.select('ul.common_sp_list_ul > li.common_sp_list_li')
         num_list = []
         for url in url_list:
-                num_list.append(url.a.get('href').split('/recipe/')[1])
+                try:
+                    num_list.append(url.a.get('href').split('/recipe/')[1])
+                except:
+                    pass
         # 검색 결과 페이지에서 고유 url 숫자 가져오기
         for nu in num_list:
             headers1 = {
